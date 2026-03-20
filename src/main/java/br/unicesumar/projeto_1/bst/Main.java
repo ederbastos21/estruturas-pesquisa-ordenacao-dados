@@ -5,47 +5,34 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
+        BinarySearchTree bst = new BinarySearchTree();
+        int escolha;
+        int valor;
         Node root = new Node (10);
 
         System.out.println("root: " + root.value);
-        while (true){
-            System.out.print("Adicionar valor do nó: // 0 para sair");
-            int escolha = scanner.nextInt();
-            int valor = 25;
+        do{
             Node atual = root;
 
-            System.out.println(atual.value);
+            System.out.print("\n1- Adicionar nó // 2- Procurar valor de nó // 0 - sair");
+            escolha = scanner.nextInt();
 
-            if (escolha == 0){
-                break;
+            switch (escolha) {
+                case 0:
+                    break;
+                case 1:
+                    System.out.print("Insira o valor do nó: ");
+                    valor = scanner.nextInt();
+                    bst.insert(valor, atual);
+                    break;
+                case 2:
+                    System.out.print("insira o valor que voce quer procurar: ");
+                    valor = scanner.nextInt();
+                    bst.search(valor);
+                    break;
+                default:
+                    System.out.println("insira um valor valido");
             }
-
-            while (true){
-                if (escolha < atual.value && atual.left == null){
-                    atual.left = new Node (escolha);
-                    atual.printTree();
-                    break;
-                } else if (escolha > atual.value && atual.right == null){
-                    atual.right = new Node (escolha);
-                    atual.printTree();
-                    break;
-                } else if (escolha == atual.value) {
-                    //obs. vi em fontes na internet que algoritmos bst podem ou nao considerar duplicatas sem comprometer a ideia de arvores binarias,
-                    //e nao achei nada no documento do trabalho, portanto, eu considerei nao incluir valores duplicados.
-                    System.out.println("Valor já existe, não será inserido.");
-                    break;
-                }
-                else {
-                    System.out.println("nenhum nó disponivel, avançando nivel da arvore");
-                    if (escolha > atual.value){
-                        atual = atual.right;
-                        atual.printTree();
-                    } else if (escolha < atual.value){
-                        atual = atual.left;
-                        atual.printTree();
-                    }
-                }
-            }
-        }
+        } while (escolha != 0);
     }
 }
