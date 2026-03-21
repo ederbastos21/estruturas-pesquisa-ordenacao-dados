@@ -14,7 +14,7 @@ public class Main {
         do{
             Node atual = root;
 
-            System.out.println("\n1- Adicionar nó // 2- Procurar valor de nó // 3- remover // 0 - sair");
+            System.out.println("\n1- Adicionar nó // 2- Procurar valor de nó // 3- calcular Altura // 0 - sair");
             System.out.print("escreva sua ação: ");
             escolha = scanner.nextInt();
 
@@ -35,6 +35,9 @@ public class Main {
                     } else {
                         System.out.println("valor " + valor + " nao encontrado");
                     }
+                    break;
+                case 3:
+                    System.out.println(bst.busca(atual));
                     break;
                 default:
                     System.out.println("insira um valor valido");

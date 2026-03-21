@@ -43,4 +43,13 @@ public class BinarySearchTree {
         }
     }
 
+    public int busca(Node atual){
+        if (atual == null){
+            return 0;
+        }
+        int alturaEsquerda = busca(atual.left);
+        int alturaDireita = busca(atual.right);
+        return 1 + Math.max(alturaEsquerda, alturaDireita);
+    }
+
 }
