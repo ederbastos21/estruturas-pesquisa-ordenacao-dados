@@ -37,7 +37,7 @@ public class Main {
                     }
                     break;
                 case 3:
-                    System.out.println(bst.busca(atual));
+                    System.out.println(bst.calcularAltura(atual));
                     break;
                 default:
                     System.out.println("insira um valor valido");
