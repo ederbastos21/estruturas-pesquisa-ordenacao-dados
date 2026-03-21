@@ -14,7 +14,7 @@ public class Main {
         do{
             Node atual = root;
 
-            System.out.println("\n1- Adicionar nó // 2- Procurar valor de nó // 3- calcular Altura // 0 - sair");
+            System.out.println("\n1- Adicionar nó // 2- Procurar valor de nó // 3- calcular Altura // 4- Remover nó // 5- Mostrar arvore // 0 - sair");
             System.out.print("escreva sua ação: ");
             escolha = scanner.nextInt();
 
@@ -38,6 +38,14 @@ public class Main {
                     break;
                 case 3:
                     System.out.println(bst.calcularAltura(atual));
+                    break;
+                case 4:
+                    System.out.print("insira o valor do nó que voce quer remover: ");
+                    valor = scanner.nextInt();
+                    bst.remover(atual,valor);
+                    break;
+                case 5:
+                    atual.printTree();
                     break;
                 default:
                     System.out.println("insira um valor valido");

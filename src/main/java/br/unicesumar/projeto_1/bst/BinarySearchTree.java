@@ -52,4 +52,44 @@ public class BinarySearchTree {
         return 1 + Math.max(alturaEsquerda, alturaDireita);
     }
 
+    public Node menorValor(Node node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
+    }
+
+    public Node remover(Node atual, int valor) {
+        if (atual == null) {
+            return null;
+        }
+
+        if (valor < atual.value) {
+            atual.left = remover(atual.left, valor);
+        }
+        else if (valor > atual.value) {
+            atual.right = remover(atual.right, valor);
+        }
+        else {
+            //folha
+            if (atual.left == null && atual.right == null) {
+                return null;
+            }
+
+            //um filho
+            if (atual.left == null) {
+                return atual.right;
+            }
+            if (atual.right == null) {
+                return atual.left;
+            }
+
+            //dois filhos
+            Node sucessor = menorValor(atual.right);
+            atual.value = sucessor.value;
+            atual.right = remover(atual.right, sucessor.value);
+        }
+
+        return atual;
+    }
 }
