@@ -29,8 +29,18 @@ public class BinarySearchTree {
         }
     }
 
-    public int search(int valor){
-       return 0;
+    public Node search(int valor, Node atual){
+        while (true){
+            if (valor < atual.value && atual.left != null){
+                atual = atual.left;
+            } else if (valor > atual.value && atual.right != null){
+                atual = atual.right;
+            } else if (atual.value == valor){
+                return atual;
+            } else {
+                return null;
+            }
+        }
     }
 
 }
