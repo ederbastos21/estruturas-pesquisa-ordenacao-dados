@@ -1,55 +1,55 @@
 package br.unicesumar.projeto_1.bst;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner (System.in);
+        Scanner scanner = new Scanner(System.in);
         BinarySearchTree bst = new BinarySearchTree();
-        int escolha;
-        int valor;
-        Node root = new Node (10);
+        int choice;
+        int value;
+        Node root = new Node(10);
 
-        System.out.println("root: " + root.value);
-        do{
-            Node atual = root;
+        System.out.println("Raiz: " + root.value);
+        do {
+            Node current = root;
 
-            System.out.println("\n1- Adicionar nó // 2- Procurar valor de nó // 3- calcular Altura // 4- Remover nó // 5- Mostrar arvore // 0 - sair");
-            System.out.print("escreva sua ação: ");
-            escolha = scanner.nextInt();
+            System.out.println("\n1- Adicionar nó // 2- Procurar valor de nó // 3- Calcular altura // 4- Remover nó // 5- Mostrar árvore // 0- Sair");
+            System.out.print("Escreva sua ação: ");
+            choice = scanner.nextInt();
 
-            switch (escolha) {
+            switch (choice) {
                 case 0:
                     break;
                 case 1:
                     System.out.print("Insira o valor do nó: ");
-                    valor = scanner.nextInt();
-                    bst.insert(valor, atual);
+                    value = scanner.nextInt();
+                    bst.insert(value, current);
                     break;
                 case 2:
-                    System.out.print("insira o valor que voce quer procurar: ");
-                    valor = scanner.nextInt();
-                    Node valorEncontrado = bst.search(valor, atual);
-                    if (valorEncontrado != null){
-                        System.out.println("valor " + bst.search(valor, atual).value + " encontrado");
+                    System.out.print("Insira o valor que você quer procurar: ");
+                    value = scanner.nextInt();
+                    Node foundNode = bst.search(value, current);
+                    if (foundNode != null) {
+                        System.out.println("Valor " + bst.search(value, current).value + " encontrado.");
                     } else {
-                        System.out.println("valor " + valor + " nao encontrado");
+                        System.out.println("Valor " + value + " não encontrado.");
                     }
                     break;
                 case 3:
-                    System.out.println(bst.calcularAltura(atual));
+                    System.out.println(bst.calculateHeight(current));
                     break;
                 case 4:
-                    System.out.print("insira o valor do nó que voce quer remover: ");
-                    valor = scanner.nextInt();
-                    bst.remover(atual,valor);
+                    System.out.print("Insira o valor do nó que você quer remover: ");
+                    value = scanner.nextInt();
+                    bst.remove(current, value);
                     break;
                 case 5:
-                    atual.printTree();
+                    current.printTree();
                     break;
                 default:
-                    System.out.println("insira um valor valido");
+                    System.out.println("Insira um valor válido.");
             }
-        } while (escolha != 0);
+        } while (choice != 0);
     }
 }

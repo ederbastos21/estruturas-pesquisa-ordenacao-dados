@@ -1,95 +1,93 @@
 package br.unicesumar.projeto_1.bst;
 
 public class BinarySearchTree {
-    public void insert(int escolha, Node atual){
+    public void insert(int choice, Node current){
         while (true) {
-            if (escolha < atual.value && atual.left == null) {
-                atual.left = new Node(escolha);
-                atual.printTree();
+            if (choice < current.value && current.left == null) {
+                current.left = new Node(choice);
+                current.printTree();
                 break;
-            } else if (escolha > atual.value && atual.right == null) {
-                atual.right = new Node(escolha);
-                atual.printTree();
+            } else if (choice > current.value && current.right == null) {
+                current.right = new Node(choice);
+                current.printTree();
                 break;
-            } else if (escolha == atual.value) {
-                //obs. vi em fontes na internet que algoritmos bst podem ou nao considerar duplicatas sem comprometer a ideia de arvores binarias,
-                //e nao achei nada no documento do trabalho, portanto, eu considerei nao incluir valores duplicados.
+            } else if (choice == current.value) {
                 System.out.println("Valor já existe, não será inserido.");
                 break;
             } else {
-                System.out.println("nenhum nó disponivel, avançando nivel da arvore");
-                if (escolha > atual.value) {
-                    atual = atual.right;
-                    atual.printTree();
-                } else if (escolha < atual.value) {
-                    atual = atual.left;
-                    atual.printTree();
+                System.out.println("Nenhum nó disponível, avançando nível da árvore.");
+                if (choice > current.value) {
+                    current = current.right;
+                    current.printTree();
+                } else if (choice < current.value) {
+                    current = current.left;
+                    current.printTree();
                 }
             }
         }
     }
 
-    public Node search(int valor, Node atual){
+    public Node search(int value, Node current){
         while (true){
-            if (valor < atual.value && atual.left != null){
-                atual = atual.left;
-            } else if (valor > atual.value && atual.right != null){
-                atual = atual.right;
-            } else if (atual.value == valor){
-                return atual;
+            if (value < current.value && current.left != null){
+                current = current.left;
+            } else if (value > current.value && current.right != null){
+                current = current.right;
+            } else if (current.value == value){
+                return current;
             } else {
                 return null;
             }
         }
     }
 
-    public int calcularAltura(Node atual){
-        if (atual == null){
+    public int calculateHeight(Node current){
+        if (current == null){
             return 0;
         }
-        int alturaEsquerda = calcularAltura(atual.left);
-        int alturaDireita = calcularAltura(atual.right);
-        return 1 + Math.max(alturaEsquerda, alturaDireita);
+        int leftHeight = calculateHeight(current.left);
+        int rightHeight = calculateHeight(current.right);
+        return 1 + Math.max(leftHeight, rightHeight);
     }
 
-    public Node menorValor(Node node) {
+    public Node smallestValue(Node node) {
         while (node.left != null) {
             node = node.left;
         }
         return node;
     }
 
-    public Node remover(Node atual, int valor) {
-        if (atual == null) {
+    public Node remove(Node current, int value) {
+        if (current == null) {
             return null;
         }
 
-        if (valor < atual.value) {
-            atual.left = remover(atual.left, valor);
+        if (value < current.value) {
+            current.left = remove(current.left, value);
         }
-        else if (valor > atual.value) {
-            atual.right = remover(atual.right, valor);
+        else if (value > current.value) {
+            current.right = remove(current.right, value);
         }
         else {
-            //folha
-            if (atual.left == null && atual.right == null) {
+            // folha
+            if (current.left == null && current.right == null) {
                 return null;
             }
 
-            //um filho
-            if (atual.left == null) {
-                return atual.right;
+            // um filho
+            if (current.left == null) {
+                return current.right;
             }
-            if (atual.right == null) {
-                return atual.left;
+            if (current.right == null) {
+                return current.left;
             }
 
-            //dois filhos
-            Node sucessor = menorValor(atual.right);
-            atual.value = sucessor.value;
-            atual.right = remover(atual.right, sucessor.value);
+            // dois filhos
+            Node successor = smallestValue(current.right);
+            current.value = successor.value;
+            current.right = remove(current.right, successor.value);
         }
 
-        return atual;
+        return current;
     }
 }
