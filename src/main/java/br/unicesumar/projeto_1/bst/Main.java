@@ -8,7 +8,9 @@ public class Main {
         BinarySearchTree bst = new BinarySearchTree();
         int choice;
         int value;
-        Node root = new Node(10);
+        System.out.print("qual o valor da raiz? ");
+        value = scanner.nextInt();
+        Node root = new Node(value);
 
         System.out.println("Raiz: " + root.value);
         do {
