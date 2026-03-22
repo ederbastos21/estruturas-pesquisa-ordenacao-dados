@@ -1,47 +1,56 @@
 package br.unicesumar.projeto_1.bst;
 
 public class BinarySearchTree {
-    public void insert(int choice, Node current){
+    private Node root;
+
+    public void insert(int value){
+        if (root == null){
+            this.root = new Node(value);
+            return;
+        }
+
+        Node current = this.root;
+
         while (true) {
-            if (choice < current.value && current.left == null) {
-                current.left = new Node(choice);
-                current.printCurrentNode();
+            if (value < current.value && current.left == null) {
+                current.left = new Node(value);
                 break;
-            } else if (choice > current.value && current.right == null) {
-                current.right = new Node(choice);
-                current.printCurrentNode();
+            } else if (value > current.value && current.right == null) {
+                current.right = new Node(value);
                 break;
-            } else if (choice == current.value) {
+            } else if (value == current.value) {
                 System.out.println("Valor já existe, não será inserido.");
                 break;
             } else {
-                System.out.println("Nenhum nó disponível, avançando nível da árvore.");
-                if (choice > current.value) {
+                if (value > current.value) {
                     current = current.right;
-                    current.printCurrentNode();
-                } else if (choice < current.value) {
+                } else {
                     current = current.left;
-                    current.printCurrentNode();
                 }
             }
         }
     }
 
-    public Node search(int value, Node current){
-        while (true){
-            if (value < current.value && current.left != null){
+    public Node search(int value){
+        Node current = this.root;
+
+        while (current != null){
+            if (value < current.value){
                 current = current.left;
-            } else if (value > current.value && current.right != null){
+            } else if (value > current.value){
                 current = current.right;
-            } else if (current.value == value){
-                return current;
             } else {
-                return null;
+                return current;
             }
         }
+        return null;
     }
 
-    public int calculateHeight(Node current){
+    public int calculateHeight(){
+        return calculateHeight(this.root);
+    }
+
+    private int calculateHeight(Node current){
         if (current == null){
             return 0;
         }
@@ -50,21 +59,22 @@ public class BinarySearchTree {
         return 1 + Math.max(leftHeight, rightHeight);
     }
 
-    public void printTree(Node current){
+    public void printTree(){
+        printTree(this.root);
+    }
+
+    private void printTree(Node current){
         if (current == null) return;
         printTree(current.left);
         System.out.print(current.value + " ");
         printTree(current.right);
     }
 
-    public Node smallestValue(Node node) {
-        while (node.left != null) {
-            node = node.left;
-        }
-        return node;
+    public void remove(int value){
+        this.root = remove(this.root, value);
     }
 
-    public Node remove(Node current, int value) {
+    private Node remove(Node current, int value) {
         if (current == null) {
             return null;
         }
@@ -96,5 +106,12 @@ public class BinarySearchTree {
         }
 
         return current;
+    }
+
+    private Node smallestValue(Node node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
     }
 }
