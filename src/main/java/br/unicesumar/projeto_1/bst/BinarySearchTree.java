@@ -5,11 +5,11 @@ public class BinarySearchTree {
         while (true) {
             if (choice < current.value && current.left == null) {
                 current.left = new Node(choice);
-                current.printTree();
+                current.printCurrentNode();
                 break;
             } else if (choice > current.value && current.right == null) {
                 current.right = new Node(choice);
-                current.printTree();
+                current.printCurrentNode();
                 break;
             } else if (choice == current.value) {
                 System.out.println("Valor já existe, não será inserido.");
@@ -18,10 +18,10 @@ public class BinarySearchTree {
                 System.out.println("Nenhum nó disponível, avançando nível da árvore.");
                 if (choice > current.value) {
                     current = current.right;
-                    current.printTree();
+                    current.printCurrentNode();
                 } else if (choice < current.value) {
                     current = current.left;
-                    current.printTree();
+                    current.printCurrentNode();
                 }
             }
         }

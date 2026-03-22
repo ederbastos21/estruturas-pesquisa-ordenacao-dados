@@ -45,7 +45,7 @@ public class Main {
                     bst.remove(current, value);
                     break;
                 case 5:
-                    current.printTree();
+                    current.printCurrentNode();
                     break;
                 default:
                     System.out.println("Insira um valor válido.");

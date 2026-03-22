@@ -11,7 +11,7 @@ public class Node {
         right = null;
     }
 
-    public void printTree(){
+    public void printCurrentNode(){
         System.out.println("==============================================");
         System.out.println("valor do nó atual: " + this.value);
 
