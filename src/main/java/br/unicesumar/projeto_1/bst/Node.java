@@ -12,7 +12,6 @@ public class Node {
     }
 
     public void printCurrentNode(){
-        System.out.println("==============================================");
         System.out.println("valor do nó atual: " + this.value);
 
         if (this.left != null){
@@ -22,6 +21,5 @@ public class Node {
         if (this.right != null){
             System.out.println("valor do filho direito: " + this.right.value);
         }
-        System.out.println("==============================================");
     }
 }
