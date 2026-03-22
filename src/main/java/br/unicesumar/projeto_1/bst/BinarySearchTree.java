@@ -52,7 +52,7 @@ public class BinarySearchTree {
 
     private int calculateHeight(Node current){
         if (current == null){
-            return 0;
+            return -1;
         }
         int leftHeight = calculateHeight(current.left);
         int rightHeight = calculateHeight(current.right);
