@@ -50,6 +50,13 @@ public class BinarySearchTree {
         return 1 + Math.max(leftHeight, rightHeight);
     }
 
+    public void printTree(Node current){
+        if (current == null) return;
+        printTree(current.left);
+        System.out.print(current.value + " ");
+        printTree(current.right);
+    }
+
     public Node smallestValue(Node node) {
         while (node.left != null) {
             node = node.left;
