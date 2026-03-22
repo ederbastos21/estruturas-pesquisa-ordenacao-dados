@@ -44,7 +44,13 @@ public class Main {
                 case 4:
                     System.out.print("Insira o valor do nó que você quer remover: ");
                     value = scanner.nextInt();
-                    bst.remove(current, value);
+                    root = bst.remove(root, value);
+                    if (root == null){
+                        System.out.print("qual o valor da nova raiz? ");
+                        value = scanner.nextInt();
+                        root = new Node(value);
+                        System.out.println("Raiz: " + root.value);
+                    }
                     break;
                 case 5:
                     bst.printTree(current);
