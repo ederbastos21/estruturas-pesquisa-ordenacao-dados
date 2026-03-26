@@ -14,6 +14,18 @@ public class AVLTree {
         return 1 + Math.max(leftHeight, rightHeight);
     }
 
+    public int height (Node node){
+        if (node == null){
+            return 0;
+        } else {
+            return node.height;
+        }
+    }
+
+    public void updateHeight (Node node){
+        node.height = 1 + Math.max(height(node.left), height(node.right));
+    }
+
     public Node search (int key){
         Node current = root;
 
@@ -39,13 +51,16 @@ public class AVLTree {
         while (true){
             if (root == null){
                 root = new Node (key);
+                root.height = calculateHeight(root);
                 break;
             } else {
                 if (key < current.key && current.left == null){
                     addedNode = current.left = new Node(key);
+                    addedNode.height = calculateHeight(search(addedNode.key));
                     break;
                 } else if (key >= current.key && current.right == null){
                     addedNode = current.right = new Node (key);
+                    addedNode.height = calculateHeight(search(addedNode.key));
                     break;
                 }
 
