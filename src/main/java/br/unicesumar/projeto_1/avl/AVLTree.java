@@ -26,6 +26,14 @@ public class AVLTree {
         node.height = 1 + Math.max(height(node.left), height(node.right));
     }
 
+    public int getBalanceFactor (Node node){
+        if (node == null){
+            return 0;
+        } else {
+            return height(node.left) - height(node.right);
+        }
+    }
+
     public Node search (int key){
         Node current = root;
 
@@ -55,12 +63,10 @@ public class AVLTree {
                 break;
             } else {
                 if (key < current.key && current.left == null){
-                    addedNode = current.left = new Node(key);
-                    addedNode.height = calculateHeight(search(addedNode.key));
+                    current.left = new Node(key);
                     break;
                 } else if (key >= current.key && current.right == null){
-                    addedNode = current.right = new Node (key);
-                    addedNode.height = calculateHeight(search(addedNode.key));
+                    current.right = new Node (key);
                     break;
                 }
 
