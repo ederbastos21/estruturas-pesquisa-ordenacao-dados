@@ -61,25 +61,23 @@ public class AVLTree {
         }
     }
 
-    public Node search (int key){
+    public Node search(int key){
         Node current = root;
 
-        while (true) {
+        while (current != null) {
             if (current.key == key) {
                 return current;
             }
 
-            if (key > current.key && current.right != null) {
+            if (key > current.key) {
                 current = current.right;
-            } else if (key < current.key && current.left != null){
-                current = current.left;
             } else {
-                return null;
+                current = current.left;
             }
-
         }
-    }
 
+        return null;
+    }
     public void insert(int key){
         root = insert (root, key);
     }
