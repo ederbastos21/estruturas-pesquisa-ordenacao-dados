@@ -29,6 +29,7 @@ public class AVLTree {
         temp.left = node;
         node.right = temp2;
 
+        updateHeight(temp);
         return temp;
     }
 
@@ -39,6 +40,7 @@ public class AVLTree {
         temp.right = node;
         node.left = temp2;
 
+        updateHeight(temp);
         return temp;
     }
 
@@ -94,6 +96,28 @@ public class AVLTree {
         updateHeight(node);
 
         int balance = getBalanceFactor(node);
+
+        //left-left
+        if (balance > 1 && key < node.left.key) {
+            return rotateRight(node);
+        }
+
+        //right-right
+        if (balance < -1 && key > node.right.key) {
+            return rotateLeft(node);
+        }
+
+        //left-right
+        if (balance > 1 && key > node.left.key) {
+            node.left = rotateLeft(node.left);
+            return rotateRight(node);
+        }
+
+        //right-left
+        if (balance < -1 && key < node.right.key) {
+            node.right = rotateRight(node.right);
+            return rotateLeft(node);
+        }
 
         return node;
     }
