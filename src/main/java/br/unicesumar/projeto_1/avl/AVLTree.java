@@ -29,6 +29,7 @@ public class AVLTree {
         temp.left = node;
         node.right = temp2;
 
+        updateHeight(node);
         updateHeight(temp);
         return temp;
     }
@@ -40,6 +41,7 @@ public class AVLTree {
         temp.right = node;
         node.left = temp2;
 
+        updateHeight(node);
         updateHeight(temp);
         return temp;
     }
