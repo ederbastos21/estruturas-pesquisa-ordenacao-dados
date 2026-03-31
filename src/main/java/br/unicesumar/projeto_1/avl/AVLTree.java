@@ -22,6 +22,26 @@ public class AVLTree {
         }
     }
 
+    public Node rotateLeft (Node node){
+        Node temp = node.right;
+        Node temp2 = temp.left;
+
+        temp.left = node;
+        node.right = temp2;
+
+        return temp;
+    }
+
+    public Node rotateRight (Node node){
+        Node temp = node.left;
+        Node temp2 = temp.right;
+
+        temp.right = node;
+        node.left = temp2;
+
+        return temp;
+    }
+
     public void updateHeight (Node node){
         node.height = 1 + Math.max(height(node.left), height(node.right));
     }
@@ -53,29 +73,28 @@ public class AVLTree {
         }
     }
 
-    public void insert (int key){
-        Node current = root;
-        Node addedNode;
-        while (true){
-            if (root == null){
-                root = new Node (key);
-                root.height = calculateHeight(root);
-                break;
-            } else {
-                if (key < current.key && current.left == null){
-                    current.left = new Node(key);
-                    break;
-                } else if (key >= current.key && current.right == null){
-                    current.right = new Node (key);
-                    break;
-                }
 
-                if (key < current.key){
-                    current = current.left;
-                } else {
-                    current = current.right;
-                }
-            }
+    public void insert(int key){
+        root = insert (root, key);
+    }
+
+    public Node insert (Node node, int key){
+        if (node == null){
+            return new Node(key);
         }
+
+        if (key < node.key){
+            node.left = insert(node.left, key);
+        } else if (key > node.key){
+            node.right = insert (node.right, key);
+        } else {
+            return node;
+        }
+
+        updateHeight(node);
+
+        int balance = getBalanceFactor(node);
+
+        return node;
     }
 }
