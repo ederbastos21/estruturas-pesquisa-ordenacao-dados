@@ -130,6 +130,18 @@ public class AVLTree {
         this.root = remove(this.root, value);
     }
 
+    public void printTree(){
+        printTree(this.root);
+    }
+
+    private void printTree(Node current){
+        if (current == null)
+            return;
+        printTree(current.left);
+        System.out.print(current.key + " ");
+        printTree(current.right);
+    }
+
     public void printByLevel() {
         if (root == null) return;
 

@@ -51,6 +51,12 @@ public class Main {
                         avl.printByLevel();
                         break;
 
+                    case 6:
+                        System.out.print("\n");
+                        avl.printTree();
+                        System.out.print("\n");
+                        break;
+
                     default:
                         System.out.println("Insira um valor válido.");
                 }
