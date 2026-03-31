@@ -12,8 +12,8 @@ public class Main {
 
         do {
             try {
-                System.out.println("\n1- Adicionar nó // 2- Procurar valor de nó // 3- Calcular altura // 4- Remover nó // 5- Mostrar arvore em ordem crescente // 0- Sair");
-                System.out.print("Escreva sua ação: ");
+                System.out.println("\n[1]- Adicionar nó // [2]- Procurar valor de nó // [3]- Calcular altura // [4]- Remover nó // [5]- Mostrar arvore em ordem crescente // [0]- Sair");
+                System.out.print("> ");
                 choice = scanner.nextInt();
                 switch (choice) {
                     case 0:
@@ -27,16 +27,22 @@ public class Main {
 
                     case 2:
                         System.out.print("Insira o valor que você quer procurar: ");
+                        value = scanner.nextInt();
+                        avl.search(value);
                         break;
 
                     case 3:
+                        avl.calculateHeight(avl.root);
                         break;
 
                     case 4:
                         System.out.print("Insira o valor do nó que você quer remover: ");
+                        value = scanner.nextInt();
+                        avl.remove(value);
                         break;
 
                     case 5:
+                        avl.printTree();
                         break;
 
                     default:
