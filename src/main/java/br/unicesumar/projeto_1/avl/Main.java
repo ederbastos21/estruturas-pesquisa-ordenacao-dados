@@ -28,11 +28,16 @@ public class Main {
                     case 2:
                         System.out.print("Insira o valor que você quer procurar: ");
                         value = scanner.nextInt();
-                        avl.search(value);
+                        Node foundNode = avl.search(value);
+                        if (foundNode != null){
+                            System.out.println("valor encontrado: " + foundNode.key);
+                        } else {
+                            System.out.println("valor nao encontrado");
+                        }
                         break;
 
                     case 3:
-                        avl.calculateHeight(avl.root);
+                        System.out.println("altura da arvore: " + avl.calculateHeight(avl.root));
                         break;
 
                     case 4:
