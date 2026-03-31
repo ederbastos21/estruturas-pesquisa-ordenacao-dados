@@ -12,7 +12,8 @@ public class Main {
 
         do {
             try {
-            System.out.println("\n[1]- Adicionar nó // [2]- Procurar valor de nó // [3]- Calcular altura // [4]- Remover nó // [5]- Mostrar arvore // [0]- Sair");
+                //obs. na arvore binaria principalmente, a função de mostrar a arvore completa fica absurdamente grande a partir de 6 andares, entao é um recurso experimental
+            System.out.println("\n[1]- Adicionar nó \n[2]- Procurar valor de nó \n[3]- Calcular altura \n[4]- Remover nó \n[5]- Mostrar arvore completa (aumenta muito de tamanho a partir de altura > 5) \n[6]- Mostrar arvore em ordem crescente \n[0]- Sair");
             System.out.print("Escreva sua ação: ");
             choice = scanner.nextInt();
                 switch (choice) {
