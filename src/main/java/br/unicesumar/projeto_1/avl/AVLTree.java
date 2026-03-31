@@ -75,7 +75,6 @@ public class AVLTree {
         }
     }
 
-
     public void insert(int key){
         root = insert (root, key);
     }
@@ -121,4 +120,76 @@ public class AVLTree {
 
         return node;
     }
+
+    public void remove(int value){
+        this.root = remove(this.root, value);
+    }
+
+    private Node remove(Node node, int value) {
+        if (node == null) {
+            return null;
+        }
+
+        if (value < node.key) {
+            node.left = remove(node.left, value);
+        }
+        else if (value > node.key) {
+            node.right = remove(node.right, value);
+        }
+        else {
+            // folha
+            if (node.left == null && node.right == null) {
+                return null;
+            }
+
+            // um filho
+            if (node.left == null) {
+                return node.right;
+            }
+            if (node.right == null) {
+                return node.left;
+            }
+
+            // dois filhos
+            Node successor = smallestValue(node.right);
+            node.key = successor.key;
+            node.right = remove(node.right, successor.key);
+        }
+
+        updateHeight(node);
+
+        int balance = getBalanceFactor(node);
+
+        // left-left
+        if (balance > 1 && getBalanceFactor(node.left) >= 0) {
+            return rotateRight(node);
+        }
+
+        // left-right
+        if (balance > 1 && getBalanceFactor(node.left) < 0) {
+            node.left = rotateLeft(node.left);
+            return rotateRight(node);
+        }
+
+        // right-right
+        if (balance < -1 && getBalanceFactor(node.right) <= 0) {
+            return rotateLeft(node);
+        }
+
+        // right-left
+        if (balance < -1 && getBalanceFactor(node.right) > 0) {
+            node.right = rotateRight(node.right);
+            return rotateLeft(node);
+        }
+
+        return node;
+    }
+
+    private Node smallestValue(Node node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
+    }
+
 }
