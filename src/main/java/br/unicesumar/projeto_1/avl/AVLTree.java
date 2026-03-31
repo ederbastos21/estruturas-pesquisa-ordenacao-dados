@@ -156,7 +156,6 @@ public class AVLTree {
 
             int spaces = maxWidth / (int) Math.pow(2, level + 1);
 
-            // espaço inicial
             printSpaces(spaces);
 
             for (int i = 0; i < levelSize; i++) {
@@ -172,7 +171,6 @@ public class AVLTree {
                     queue.add(current.right);
                 }
 
-                // espaço entre nós
                 printSpaces(spaces * 2 + 1);
             }
 

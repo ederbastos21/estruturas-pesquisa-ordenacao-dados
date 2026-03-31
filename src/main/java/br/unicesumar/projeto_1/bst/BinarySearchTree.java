@@ -54,7 +54,7 @@ public class BinarySearchTree {
 
     private int calculateHeight(Node current){
         if (current == null){
-            return -1;
+            return 0;
         }
         int leftHeight = calculateHeight(current.left);
         int rightHeight = calculateHeight(current.right);
@@ -120,7 +120,7 @@ public class BinarySearchTree {
     public void printByLevel() {
         if (root == null) return;
 
-        int height = calculateHeight() + 1; // ajuste porque sua altura começa em -1
+        int height = calculateHeight();
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
 
@@ -131,7 +131,6 @@ public class BinarySearchTree {
 
             int spaces = maxWidth / (int) Math.pow(2, level + 1);
 
-            // espaço inicial
             printSpaces(spaces);
 
             for (int i = 0; i < levelSize; i++) {
@@ -147,7 +146,6 @@ public class BinarySearchTree {
                     queue.add(current.right);
                 }
 
-                // espaço entre nós
                 printSpaces(spaces * 2 + 1);
             }
 

@@ -10,6 +10,8 @@ public class Main {
         int choice = -1;
         int value;
 
+        System.out.println("Arvore BST");
+
         do {
             try {
                 //obs. na arvore binaria principalmente, a função de mostrar a arvore completa fica absurdamente grande a partir de 6 andares, entao é um recurso experimental

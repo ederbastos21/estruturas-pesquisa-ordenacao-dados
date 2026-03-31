@@ -10,6 +10,8 @@ public class Main {
         int choice = -1;
         int value;
 
+        System.out.println("Arvore AVL");
+
         do {
             try {
                 //obs. ja na arvore avl, a função de mostrar a arvore completa é melhor ja que ela vai equilibrando sozinha, mas se forem inseridos muitos dados, a função vai ficar gigante tambem
