@@ -12,7 +12,7 @@ public class Main {
 
         do {
             try {
-            System.out.println("\n1- Adicionar nó // 2- Procurar valor de nó // 3- Calcular altura // 4- Remover nó // 5- Mostrar arvore em ordem crescente // 0- Sair");
+            System.out.println("\n[1]- Adicionar nó // [2]- Procurar valor de nó // [3]- Calcular altura // [4]- Remover nó // [5]- Mostrar arvore em ordem crescente // [0]- Sair");
             System.out.print("Escreva sua ação: ");
             choice = scanner.nextInt();
                 switch (choice) {
