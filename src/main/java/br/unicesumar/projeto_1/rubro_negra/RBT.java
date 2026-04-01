@@ -306,35 +306,26 @@ public class RBT {
         int height = calculateHeight();
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
-        int maxWidth = (int) Math.pow(2, height) - 1;
         for (int level = 0; level < height; level++) {
             int levelSize = queue.size();
-            int spaces = maxWidth / (int) Math.pow(2, level + 1);
-            printSpaces(spaces);
+            int spaces = (int) Math.pow(2, height - level - 1) - 1;
+            printSpaces(spaces*4);
             for (int i = 0; i < levelSize; i++) {
                 Node current = queue.poll();
                 if (current == null) {
-                    //placeholder
-                    System.out.print("n");
+                    System.out.print(" --- ");
                     queue.add(null);
                     queue.add(null);
                 } else {
-                    System.out.println(current.key + (current.isRed ? "R" : "B"));
                     //converte NIL em null
-                    if (current.left != NIL) {
-                        queue.add(current.left);
-                    } else {
-                        queue.add(null);
-                    }
-                    if (current.right != NIL) {
-                        queue.add(current.right);
-                    } else {
-                        queue.add(null);
-                    }
+                    String color = current.isRed ? "R" : "B";
+                    System.out.printf("%3d%s", current.key, color);
+                    queue.add(current.left != NIL ? current.left : null);
+                    queue.add(current.right != NIL ? current.right : null);
                 }
-                printSpaces(spaces * 2 + 1);
+                printSpaces((spaces * 2 + 1) * 4);
             }
-            System.out.println();
+            System.out.println("\n");
         }
     }
 
