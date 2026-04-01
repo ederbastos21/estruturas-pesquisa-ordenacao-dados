@@ -6,10 +6,9 @@ import java.util.Queue;
 public class RBT {
     private static final boolean RED = true;
     private static final boolean BLACK = false;
-    final Node NIL; //sentinela: folhas null
+    final Node NIL;
     Node root;
     public RBT() {
-        //o sentinela NIL aponta para si mesmo em todos os campos
         NIL = new Node(0);
         NIL.isRed = BLACK;
         NIL.left = NIL;
