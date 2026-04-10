@@ -1,3 +1,5 @@
+package br.unicesumar.projeto_3;
+
 public class BenchmarkRunner {
 
     public BenchmarkResult runBenchmark(SortAlgorithm algorithm, int[] baseArray, int repetitions, String caseType) {

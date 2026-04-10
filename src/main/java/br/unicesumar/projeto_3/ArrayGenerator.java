@@ -1,3 +1,5 @@
+package br.unicesumar.projeto_3;
+
 import java.util.Random;
 
 public class ArrayGenerator {

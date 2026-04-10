@@ -1,3 +1,5 @@
+package br.unicesumar.projeto_3;
+
 public class MergeSort implements SortAlgorithm {
 
     @Override

@@ -1,3 +1,5 @@
+package br.unicesumar.projeto_3;
+
 public class BenchmarkResult {
     private final String algorithmName;
     private final String caseType;
