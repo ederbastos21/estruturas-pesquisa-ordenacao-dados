@@ -1,5 +1,5 @@
+package br.unicesumar.projeto_2.busca_binaria;
 import java.util.*;
-package br.unicesumar.projeto_2.busca_sequencial;
 
 public class Main {
 
