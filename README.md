@@ -1,9 +1,9 @@
 # Estruturas, Pesquisa e Ordenação de Dados – 2026/1
 
-> **Avaliação Prática Bimestral | 1º Bimestre**  
-> Disciplina: Estruturas, Pesquisa e Ordenação de Dados  
-> Curso: Tecnologia em Análise e Desenvolvimento de Sistemas 
-> Instituição: UniCesumar – Campus Ponta Grossa  
+> **Avaliação Prática Bimestral | 1º Bimestre**
+> Disciplina: Estruturas, Pesquisa e Ordenação de Dados
+> Curso: Tecnologia em Análise e Desenvolvimento de Sistemas
+> Instituição: UniCesumar – Campus Ponta Grossa
 > Professor: Prof. MSc. Gabriel Passos de Jesus
 
 ---
@@ -212,7 +212,8 @@ Todas as três estruturas implementam as seguintes operações, seguindo todas e
 | Remoção | Y | Y | Y |
 | Busca | Y | Y | Y |
 | Cálculo de Altura | Y | Y | Y |
-[Y]es e [N]o
+
+Legenda: [Y]es e [N]o
 
 ### Heurística para o Problema do Caixeiro-Viajante (`tsp/`)
 
@@ -249,7 +250,8 @@ O edital exigia a implementação de (ao menos) dois algoritmos dentre os listad
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) | N | Y |
 | Quick Sort | O(n log n) | O(n log n) | O(n²) | Y | N |
 | Heap Sort | O(n log n) | O(n log n) | O(n log n) | Y | N |
-[Y]es e [N]o
+
+Legenda: [Y]es e [N]o
 
 ### Cenários de Teste
 
@@ -292,10 +294,10 @@ Os relatórios técnicos em PDF - contendo Introdução, Fundamentação Teóric
 |------|--------|
 | Eder Bastos | [@ederbastos21](https://github.com/ederbastos21) |
 | Amauri B. S. Jr. | [@amauribsjr](https://github.com/amauribsjr) |
-| Gustavo Bayer | [@gustabayer(https://github.com/gustabayer)] |
+| Gustavo Bayer | [@gustabayer](https://github.com/gustabayer) |
 | Gabriel Lazarine | [@Gabriellazarine](https://github.com/Gabriellazarine) |
-| Carlos Aplewicz | [@aplewicz(https://github.com/aplewicz)] |
-| Rullian Paitch | [@rullianpeep19-dotcom(https://github.com/rullianpeep19-dotcom)] |
+| Carlos Aplewicz | [@aplewicz](https://github.com/aplewicz) |
+| Rullian Paitch | [@rullianpeep19-dotcom](https://github.com/rullianpeep19-dotcom) |
 
 ---
 
